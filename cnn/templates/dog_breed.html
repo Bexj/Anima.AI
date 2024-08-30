@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dog Breed Recognition</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+    <main>
+        <a href="/help.html" class="help-button">?</a>
+        <a href="/" class="close-button">X</a>
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Dog Breed Recognition Logo" class="logo">
+        <h1>Welcome to the Anima.AI breed predictor!</h1>
+        <h2>Upload a photo of a dog to predict its breed</h2>
+        <form id="upload-form">
+            <input type="file" id="file-input" name="file" accept="image/*">
+            <input type="submit" value="Predict Breed">
+        </form>
+        <form id="checkBox-form">
+            <input type="checkbox" id="myCheckbox" name="myCheckbox">
+            <label for="myCheckbox">Give consent to use the image for data processing.</label>
+        </form>
+        <p id="prediction-result"></p>
+        <p id="checkBox-error"></p>
+    </main>
+    
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(e) {
+            var checkBox = document.getElementById("myCheckbox");
+            var isChecked = checkBox.checked;
+            if (isChecked == true){
+                e.preventDefault();
+                document.getElementById('checkBox-error').innerText = '';
+                
+
+                const formData = new FormData();
+                const fileInput = document.getElementById('file-input');
+                formData.append('file', fileInput.files[0]);
+
+                fetch('/predict_breed', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('prediction-result').innerText = 'The breed of the dog is: ' + data.breed + ' and the age category: ' + data.age;
+                })
+                .catch(error => console.error('Error:', error));
+            }
+
+            else{
+                e.preventDefault();
+                document.getElementById('prediction-result').innerText = '';
+                document.getElementById('checkBox-error').innerText = 'Please check the checkbox';
+            }  
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+/* Basic reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, button, input {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #c4c5c8;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+main {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 45px;
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="file"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+input[type="submit"], button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #498f5e;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #22422c;
+}
+
+#prediction-result {
+    margin-top: 20px;
+    font-size: 1em;
+    text-align: center;
+}
+
+#checkBox-error {
+    margin-top: 20px;
+    font-size: 1em;
+    text-align: center;
+    color: red;
+}
+
+#checkBox-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#myCheckbox {
+    margin-right: 10px;
+}
+
+.single_button {
+    padding: 12px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #498f5e;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.centered_container {
+    margin-bottom: 20 px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    display: block;
+    max-width: 100%; /* Makes image responsive */
+    height: 150px;
+    margin: 0 auto 20px; /* Centers the image and adds space below */
+}
+
+.help-button {
+    position: fixed; /* or 'absolute' if within a positioned container */
+    top: 10px;
+    right: 10px;
+    background-color: #5e5e5e;
+    color: white;
+    padding: 10px;
+    border-radius: 50%; /* Circular shape */
+    text-decoration: none; /* Removes underline from link */
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px; /* Adjust as needed */
+    cursor: pointer;
+}
+
+.help-button:hover {
+    background-color: #1f1f1f;
+}
+
+.close-button {
+    position: fixed; /* or 'absolute' if within a positioned container */
+    top: 10px;
+    left: 10px;
+    background-color: #d60000;
+    color: white;
+    padding: 10px;
+    border-radius: 50%; /* Circular shape */
+    text-decoration: none; /* Removes underline from link */
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px; /* Adjust as needed */
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #4e0000;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center; /* Center buttons vertically */
+}
+
+.button-container button {
+    flex: 1; /* Each button will take equal space */
+    margin: 5px; /* Space between buttons */
+}
+
+#intro_text {
+    text-align: center;
+}
+
+#help_text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#extra_info { 
+    margin-top: 20px;
+}
+
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+    }
+
+    main {
+        width: 90%;
+    }
+}
